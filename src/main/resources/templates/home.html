@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Home page</title>
+</head>
+<body>
+<div th:replace="header"></div>
+
+<div class="col-md-offset-2 col-sm-8">
+    <div class="page-header" , align="center">
+        <h2>Welcome to ToDo List Application</h2>
+        <br><br>
+        <form th:action="@{/users/create}" method="get">
+            <div align="center" sec:authorize="hasAuthority('ADMIN')">
+                <input class="btn-info btn-lg" type="submit" value="Create new User">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
